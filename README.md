@@ -79,7 +79,7 @@ struct my_markdown : public imgui_md
 		return true;
 	}
 	
-	void html_div(const std::string& dclass, bool e)
+	void html_div(const std::string& dclass, bool e) override
 	{
 		if (dclass == "red") {
 			if (e) {
