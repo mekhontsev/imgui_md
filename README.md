@@ -31,17 +31,15 @@ Add imgui_md.h imgui_md.cpp md4c.h md4c.c to your project and use the following 
 ```cpp
 #include "imgui_md.h"
 
-//Fonts and images (ImTextureID) must be loaded in other place,
+//Fonts and images (ImTextureID) must be loaded in other place
 //see https://github.com/ocornut/imgui/blob/master/docs/FONTS.md
 extern ImFont* g_font_regular;
 extern ImFont* g_font_bold;
 extern ImFont* g_font_bold_large;
-extern ImTextureID g_texture1
+extern ImTextureID g_texture1;
 
 struct my_markdown : public imgui_md 
 {
-	
-	
 	ImFont* get_font() const override
 	{
 		if (m_is_table_header) {
@@ -59,13 +57,11 @@ struct my_markdown : public imgui_md
 		}
 	};
 
-	
 	void open_url() const override
 	{
 		//platform dependent code
 		SDL_OpenURL(m_href.c_str());
 	}
-
 
 	bool get_image(image_info& nfo) const override
 	{
